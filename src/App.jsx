@@ -3,18 +3,13 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import axios from 'axios';
-// api_key=AIzaSyDPzdVg-3xqoSLOysjd_F7WsehifbPOeQY
-// calendar_id=en.canadian#holiday@group.v.calendar.google.com
 import ApiCalendar from 'react-google-calendar-api';
 
 const config = {
-  clientId:
-    '283353260259-jd40gd4rk86l0peu42ogivn94q8bpshu.apps.googleusercontent.com',
-  apiKey: 'AIzaSyDPzdVg-3xqoSLOysjd_F7WsehifbPOeQY',
-  scope: 'https://www.googleapis.com/auth/calendar.events.readonly',
-  discoveryDocs: [
-    'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
-  ],
+  clientId: `${_CLIENT_ID}`,
+  apiKey: `${_API_KEY}`,
+  scope: `${_SCOPE}`,
+  discoveryDocs: [`${_DISCOVERY_DOCS}`],
 };
 
 const apiCalendar = new ApiCalendar(config);
@@ -34,7 +29,7 @@ function App() {
           maxResults: 100,
           orderBy: 'updated',
         },
-        'en.canadian#holiday@group.v.calendar.google.com'
+        `${_CALENDAR_ID}`
       );
       // console.log('response: ', response.result);
       let holidays = [];
